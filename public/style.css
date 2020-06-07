@@ -1,0 +1,316 @@
+
+* {
+  box-sizing: border-box;
+/*   background-color: #ff6b6b; */
+  font-size: medium;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+.main {
+  display: none;
+  font-family: "Open Sans";
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header{
+  padding: 25px;
+  font-size: 100px;
+  font-weight: 500;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans";
+  width: 90%;
+  height: 99vh;
+  background-color: #ff6b6b;
+  /* this is for mobile view */
+}
+
+.tinderBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /*   justify-content: center; */
+  width: 100%;
+  min-height: 50%;
+  /*   margin: 20px; */
+}
+
+.interface {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  padding: 25px;
+  font-size: x-large;
+  font-weight: 300;
+}
+
+.button {
+  background-color: white;
+  border-radius: 5px;
+  padding: 6px;
+  margin: 15px;
+  color: black;
+  text-decoration: none;
+  border: 0.3px solid black;
+}
+
+.button:hover {
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#begin {
+  margin: 0;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  padding: 12px;
+}
+
+.settings{
+  background-color: white;
+  margin-bottom: 6px;
+}
+#location{
+  width:200px;
+  background-color: white;
+}
+#category{
+  width:200px;
+  background-color: white;
+}
+
+img {
+  max-width: 30%;
+  opacity: 1;
+}
+
+img:hover {
+  opacity: .8;
+}
+
+.restaurantInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 100%;
+/*   min-height: 30vh; */
+  border: 1px solid white;
+  background-color: white;
+  justify-content: center;
+  padding: 5px;
+}
+
+.info {
+  background-color: white;
+}
+
+.inlineInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.restaurantName {
+  display: flex;
+  flex: 1 1 auto;
+  font-weight: bold;
+  font-size: x-large;
+  background-color: white;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  padding-right: 10px;
+  align-items: center;
+  background-color: white;
+}
+
+.tinderButton {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#fakeLink {
+  font-family: "Open Sans";
+  font-size: medium;
+  color: #003388;
+}
+
+input {
+  border: 1px solid silver;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 50em;
+}
+
+.hidden {
+  display: none
+}
+
+/* media dependent encoding*/
+
+/* tablet view */
+@media (min-width: 600px && max-width: 770px) {
+  body{
+    width: 70%;
+  }
+}
+
+/* desktop view */
+@media (min-width: 770px) {
+  body {
+    width: 50%;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 40px;
+  padding-bottom: 25px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  top: 40%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: all .3s ease-in-out;
+  background-color: white;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  background-color: white;
+  font-size: medium;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  background-color: white;
+}
+.popup .close:hover {
+  color: red;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+  background-color: white;
+  padding: 5px;
+  padding-left: 0px;
+}
+
+#link {
+  background-color: white;
+  text-decoration: none;
+  color: steelblue;
+}
+
+#progress{
+  font-size: 30px;
+  font-weight: bold;
+  padding:30px;
+}
+
+.settings {
+  padding-top: 5px;
+}
+
+.restaurant {
+  width: 100%;
+}
+
+.restaurantImage {
+  max-width: 100%;
+  min-height: 30vh;
+  border: .1px dashed black;
+}
+
+.uselessbuttonholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tournament {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.line {
+  padding: 0.1px;
+  height: 100%;
+  border: 0.5px solid black;
+}
+
+.heart {
+  padding: 5px;
+  color: red;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.heart:hover {
+  color: maroon;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hiddenHeart {
+  display: none;
+}
