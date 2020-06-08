@@ -40,7 +40,7 @@ let totalVoteCounter = [0, 0]
 let clientCount = 0;
 let voteCount = 1;
 
-let currentVotesCounter = [0, 0];
+let currentRestaurants = [0, 0];
 let currentLeft = 0;
 let currentRight = 1;
 
@@ -58,8 +58,8 @@ wss.on('connection', (ws) => {
 
   totalVoteCounter[voteCount] = 0;
 
-  currentVotesCounter[currentLeft] = 0;
-  currentVotesCounter[currentRight] = 0;
+  currentRestaurants[currentLeft] = 0;
+  currentRestaurants[currentRight] = 0;
 
   leftRightVotes[leftVotes] = 0;
   leftRightVotes[rightVotes] = 0;
@@ -71,10 +71,10 @@ wss.on('connection', (ws) => {
       let vote = messageJson.selection;
       // If the vote is for left
       if (!vote){
-        leftRightVotes[leftVotes] = leftRightVotes[leftVotes] + 1;
+        leftRightVotes[leftVotes] ++;
       // If the vote is for right
       } else {
-        leftRightVotes[rightVotes] = leftRightVotes[rightVotes] + 1;
+        leftRightVotes[rightVotes] ++;
       }
       // After the voting has been registered, increase the amount of votes
       totalVoteCounter[voteCount] = totalVoteCounter[voteCount] + 1;
@@ -85,12 +85,12 @@ wss.on('connection', (ws) => {
         let losingIndex = 0;
         // If right won
         if (leftRightVotes[rightVotes] > leftRightVotes[leftVotes]) {
-          winningIndex = currentVotesCounter[currentRight];
-          losingIndex = currentVotesCounter[currentLeft];
+          winningIndex = currentRestaurants[currentRight];
+          losingIndex = currentRestaurants[currentLeft];
         // If left won
       } else if (leftRightVotes[leftVotes] > leftRightVotes[rightVotes]) {
-          winningIndex = currentVotesCounter[currentLeft];
-          losingIndex = currentVotesCounter[currentRight];
+          winningIndex = currentRestaurants[currentLeft];
+          losingIndex = currentRestaurants[currentRight];
         // If its a tie
         } else {
           // If this is the first tie
@@ -109,12 +109,12 @@ wss.on('connection', (ws) => {
             console.log("Random pair's second index is is: ", randomWinner[1]);
             // If the first index is 0, then right wins
             if (!randomWinner[0]) {
-              winningIndex = currentVotesCounter[currentRight];
-              losingIndex = currentVotesCounter[currentLeft];
+              winningIndex = currentRestaurants[currentRight];
+              losingIndex = currentRestaurants[currentLeft];
             // If the first index is 1, then left wins
             } else {
-              winningIndex = currentVotesCounter[currentLeft];
-              losingIndex = currentVotesCounter[currentRight];
+              winningIndex = currentRestaurants[currentLeft];
+              losingIndex = currentRestaurants[currentRight];
             }
           }
         }
@@ -147,26 +147,26 @@ wss.on('connection', (ws) => {
           currentRound++;
           let randomNumberPair = generateRandomNumbers(restaurantLength);
           console.log('randomNumberPair: ', randomNumberPair);
-          currentVotesCounter[currentLeft] = randomNumberPair[0];
-          currentVotesCounter[currentRight] = randomNumberPair[1];
+          currentRestaurants[currentLeft] = randomNumberPair[0];
+          currentRestaurants[currentRight] = randomNumberPair[1];
           broadcast(JSON.stringify({ type: "command",
-              info: [restaurantList[currentVotesCounter[currentLeft]], restaurantList[currentVotesCounter[currentRight]]],
+              info: [restaurantList[currentRestaurants[currentLeft]], restaurantList[currentRestaurants[currentRight]]],
               round: currentRound}));
         }
       }
     } else if (messageJson.type == "message") { // this is the inital yelp search
       client.search({ term: messageJson.msg[0], location: messageJson.msg[1] }).then(response => {
           for (let i = 0; i < 10; i++) {//storing the top 10 reponses
-            restaurantList[i] = JSON.stringify(response.jsonBody.businesses[i], null, 4);
+            restaurantList[i] = JSON.stringify(response.jsonBody.businesses[i], null, 2);
           }
           //Get a random pair of restaurants for the first round]
           let restaurantLength = restaurantList.length;
           let randomNumberPair = generateRandomNumbers(restaurantLength);
-          currentVotesCounter[currentLeft] = randomNumberPair[0];
-          currentVotesCounter[currentRight] = randomNumberPair[1];
+          currentRestaurants[currentLeft] = randomNumberPair[0];
+          currentRestaurants[currentRight] = randomNumberPair[1];
 
           broadcast(JSON.stringify({ type: "command", //starts the first round of game
-          info:  [restaurantList[currentVotesCounter[currentLeft]], restaurantList[currentVotesCounter[currentRight]]],
+          info:  [restaurantList[currentRestaurants[currentLeft]], restaurantList[currentRestaurants[currentRight]]],
           round: currentRound }));
 
         }).catch(e => {console.log(e);});
