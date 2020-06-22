@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tournament - Restaurant Tinder</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/efdb00de1b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body onload="startCounter()">
+    <div id="roundNumber" class="hidden">
+        Round 1
+    </div>
+    
+    <div id="progress">
+        Waiting for other players. Page will refresh itself ...      
+    </div>
+
+    <div class="tournament hidden" id="tournament">
+      <!--  second restaurant  -->
+      <div class="tinderBox" id="restaurantDisplay">
+        <div class="restaurant">
+          <div class="restaurantImage" id="Image"></div>
+          <div class="restaurantInfo">
+            <div class="inlineInfo">
+              <div class="restaurantName">
+                <h2 id="name">
+                  Restaurant Name
+                </h2>
+              </div>
+              <div class="price">
+                <p id="price">
+                  $$$$
+                </p>
+              </div>
+            </div>
+
+            <div class="info" id="rating">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+
+            <p class="info" id="address">
+              Davis, CA 95616
+            </p>
+            
+            <div class="reviews">
+              <!--a class="button" id="reviews" target="_blank" href="#">Reviews</a-->    
+              <div class="heart" id="heart">
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="line"></div>
+      
+      <!--  second restaurant  -->
+      <div class="tinderBox" id="restaurantDisplay2">
+        <div class="restaurant" >
+          <div class="restaurantImage" id="Image2"></div>
+          <div class="restaurantInfo">
+            <div class="inlineInfo">
+              <div class="restaurantName">
+                <h2 id="name2">
+                  Restaurant Name
+                </h2>
+              </div>
+              <div class="price">
+                <p id="price2">
+                  $$$$
+                </p>
+              </div>
+            </div>
+
+            <div class="info" id="rating2">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+
+            <p class="info" id="address2">
+              Davis, CA 95616
+            </p>
+            
+            <div class="reviews">
+              <!--a class="button" id="reviews2" target="_blank" href="#">Reviews</a-->      
+              <div class="heart" id="heart2">
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./playerScript.js"></script>
+  </body>
+</html>
