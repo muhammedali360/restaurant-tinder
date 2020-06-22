@@ -17,23 +17,18 @@
     ></script>
   </head>
 
-  <body>
+  <body onload="startCounter()">
     <div id="roundNumber" class="hidden">
         Round 1
     </div>
     
     <div id="progress">
-      
-        Waiting for other players ...
-      
+        Waiting for other players. Page will refresh itself ...      
     </div>
 
     <div class="tournament hidden" id="tournament">
       <!--  second restaurant  -->
       <div class="tinderBox" id="restaurantDisplay">
-        <!-- <div class="tinderButton" id="leftSwipe">
-        <img class="rejectButton" src="/assets/rejectButton.svg" />
-      </div> -->
         <div class="restaurant">
           <div class="restaurantImage" id="Image"></div>
           <div class="restaurantInfo">
@@ -70,9 +65,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="tinderButton" id="rightSwipe">
-        <img class="heartButton" src="/assets/heartButton.svg" />
-      </div> -->
       </div>
       
       <div class="line"></div>

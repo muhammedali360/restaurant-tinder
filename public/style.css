@@ -43,6 +43,7 @@ body {
   /*   justify-content: center; */
   width: 100%;
   min-height: 50%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
   /*   margin: 20px; */
 }
 
@@ -55,7 +56,7 @@ body {
 
 h1 {
   padding: 25px;
-  font-size: x-large;
+  font-size: 40px;
   font-weight: 300;
 }
 
@@ -199,10 +200,10 @@ input {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transition: opacity 500ms;
   visibility: hidden;
-  opacity: 0;
+  opacity: 0.3;
 }
 .overlay:target {
   visibility: visible;
@@ -215,7 +216,7 @@ input {
   padding-bottom: 25px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
+  width: 40%;
   position: relative;
   top: 40%;
   -ms-transform: translateY(-50%);
@@ -259,8 +260,8 @@ input {
 }
 
 #progress{
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 25px;
+  font-weight: 400;
   padding:30px;
 }
 
@@ -273,7 +274,6 @@ input {
 }
 
 .restaurantImage {
-  max-width: 100%;
   min-height: 30vh;
   border: .1px dashed black;
 }
@@ -300,8 +300,8 @@ input {
 .heart {
   padding: 5px;
   color: red;
-  font-size: 30px;
-  border-radius: 10px;
+  font-size: 50px;
+  border-radius: 15px;
 }
 
 .heart:hover {
@@ -313,4 +313,12 @@ input {
 
 .hiddenHeart {
   display: none;
+}
+
+#address {
+  padding-top: 17px;
+}
+
+#address2 {
+  padding-top: 17px;
 }
