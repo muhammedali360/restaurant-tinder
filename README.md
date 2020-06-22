@@ -1,4 +1,4 @@
-# ECS 162 - Final Project - Restaurant Tinder
+# Web Programming Final Project - Restaurant Tinder
 
 Created by Ranjan Sikand, Sayed Yoseph Sadat, and Muhammed Halbutogullari
 
